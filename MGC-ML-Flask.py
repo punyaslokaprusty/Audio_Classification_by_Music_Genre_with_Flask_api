@@ -144,7 +144,7 @@ def uploaded_file():
                 return redirect(url_for('new_upload_file',
                                         filename=filename))
     except Exception as e:
-        eput='Looks Like you Broke me . WHY LORD WHY . I am Just a Tini Tiny Code with itbity pieces of Bytes. The error is '+ str(e)
+        eput='ERROR :{} \n \n Looks Like you Broke me . WHY LORD WHY . I am Just a Tini Tiny Code with itbity pieces of Bytes. '.format(str(e))
         return eput
 
 
@@ -192,7 +192,7 @@ def new_upload_file(filename):
 
         return output
     except Exception as newe:
-        neweput='Looks Like you Broke me . WHY LORD WHY . I am Just a Tini Tiny Code with itbity pieces of Bytes. The error is '+ str(newe)
+        neweput='ERROR :{} \n \n Looks Like you Broke me .\n WHY LORD WHY . \n I am Just a Tini Tiny Code with itbity pieces of bytes. '.format(str(newe))
         return neweput
 
 
