@@ -1,40 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <img src="/static/Audio sound with harmonic and Percursive sounds.png" alt="Banner">
+<!--    <img src="/static/Audio sound with harmonic and Percursive sounds.png" alt="Banner">-->
     <meta charset="UTF-8">
     <title>Audio Classification by Music Genre using GTZAN dataset </title>
-    <link rel="shortcut icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/default.css') }}">
 </head>
 
 <br>
 <br>
-<h2 >Upload the audio file here:</h2>
+
 <br>
 <br>
 <body>
+<div class="container">
+  <div class="brand-logo"></div>
+  <div class="brand-title">Music Genre Classifier</div>
+  <div class="inputs">
+    <form action="http://localhost:5000/uploader" method="post" enctype="multipart/form-data">
 
-
-<form action="http://localhost:5000/uploader" method="post" enctype="multipart/form-data">
-    <input type="file" name="file">
+    <input type="file" name="file" placeholder="audio.wav">
     <button type="submit" class="btn btn-primary btn-block btn-large">Upload Audio And Predict Genre</button>
-<br>
-<br>
-    <p align="justify"> Make sure the audio file is with in 30 MB and is of '.wav' formats.
-        <br>
-        Any other formats or File size beyond scope of audio  will definitly through an Error.
-    <br>
-        THIS PROGRAM IS CREATED BY PUNYA SLOKA PRUSTY.
+    <div>
+        <p align="justify"> Make sure the audio file is with in 30 MB and is of '.wav' formats.<br>
+            Any other formats or File size beyond scope of audio  will definitly through an Error.<br>
 
-    </p>
-<br>
-<br>
-<br>
-    <p align="center">
-     LICENSE MIT <br>
-Copyright (c) <2022> <copyright Punya Sloka Prusty></copyright>
-<br>
         </p>
+    </div>
+    </form>
+  </div>
+  <a href="https://github.com/punyaslokaprusty">MADE BY Punya Sloka Prusty</a>
+</div>
+
+<div class="footer">
+  <p align="center">
+     LICENSE MIT <br>
+Copyright (c) <2022>THIS PROGRAM IS CREATED BY PUNYA SLOKA PRUSTY. <copyright Punya Sloka Prusty></copyright>
+<br></p>
 <p align="justify">
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -44,8 +46,6 @@ copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
     </p>
 <p align="justify">
-
-
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 <br>
@@ -57,8 +57,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </p>
-
-</form>
-
+</div>
 </body>
 </html>
