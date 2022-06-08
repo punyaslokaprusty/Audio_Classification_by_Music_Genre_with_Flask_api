@@ -102,6 +102,7 @@ def Decompose_song(filename):
     return feature_array
 
 
+
 ###################################### Creating Flask App #######################
 import os
 import IPython.display as ipd
@@ -111,7 +112,18 @@ from flask import send_from_directory
 UPLOAD_FOLDER = 'UPLOAD/'
 ALLOWED_EXTENSIONS = {'wav'}
 app= Flask(__name__,template_folder='Templates')
-
+################### TExt Formating For Strings##########
+class color:
+   PURPLE = '\033[95m'
+   CYAN = '\033[96m'
+   DARKCYAN = '\033[36m'
+   BLUE = '\033[94m'
+   GREEN = '\033[92m'
+   YELLOW = '\033[93m'
+   RED = '\033[91m'
+   BOLD = '\033[1m'
+   UNDERLINE = '\033[4m'
+   END = '\033[0m'
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 30* 1024 * 1024
@@ -158,7 +170,7 @@ def new_upload_file(filename):
         song = Decompose_song(audio_file)
         song_test = song.reshape(1, -1) #here since our model takes this shape only we are sreshaping for a Proper fit
         pred = GBCmodel.predict(song_test)
-        output='This song or Audio belongs to '+pred[0]+' Genre Or it may have more similarity to such genre as per Our ML model. ' \
+        output='This song or Audio belongs to '+pred[0]+' Genre Or it may have more similarity to ' +pred[0]+ ' genre as per Our ML model. ' \
                                                ' Although kindly note that because our ML model has a 90% score accuracy ' \
                                                'there is 10 % chance misclassiffication. But then again as we have previous know that ' \
                                                'while music genre is to be distinguished from musical form and musical style ' \
@@ -192,7 +204,7 @@ def new_upload_file(filename):
 
         return output
     except Exception as newe:
-        neweput='ERROR :{} \n \n Looks Like you Broke me .\n WHY LORD WHY . \n I am Just a Tini Tiny Code with itbity pieces of bytes. '.format(str(newe))
+        neweput=color.BOLD+'ERROR :{} \n \n Looks Like you Broke me .\n WHY LORD WHY . \n I am Just a Tini Tiny Code with itbity pieces of bytes. '.format(str(newe))+color.END
         return neweput
 
 
